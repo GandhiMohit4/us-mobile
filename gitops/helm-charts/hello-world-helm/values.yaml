@@ -7,6 +7,5 @@ image:
 service:
   type: LoadBalancer
   port: 80
-  targetPort: 8081
 
 resources: {}

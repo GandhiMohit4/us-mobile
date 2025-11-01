@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-of-apps
+  name: us-interview-hello-world-app
   namespace: argocd
 spec:
   project: default
   source:
     # --- REPLACE THIS LINE ---
-    repoURL: 'https://github.com/GandhiMohit4/gitops.git'
+    repoURL: 'https://github.com/GandhiMohit4/us-mobile.git'
     targetRevision: HEAD
-    path: argocd/hello-world-app # Points to the directory containing all our application definitions
+    path: gitops/argocd/hello-world-app # Points to the directory containing all our application definitions
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd

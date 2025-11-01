@@ -1,0 +1,44 @@
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Python bytecode
+*.pyc
+__pycache__/
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.swp
+
+# Log files and temporary files
+*.log
+tmp/
+
+# Sensitive data (example)
+config.ini
+.env
+
+# Terraform generated files
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+.terraformrc
+terraform.rc
+.terraform.lock.hcl
+
+# Local configuration files
+*.local
+read
+
+# Sensitive files (if not using a remote backend)
+# You should generally use a remote backend for state files
+# and avoid committing them to Git entirely.
+# terraform.tfstate
+# terraform.tfstate.backup

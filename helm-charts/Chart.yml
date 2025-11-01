@@ -1,0 +1,4 @@
+apiVersion: v2
+name: hello-world-app
+description: A sample microservice deployed on EKS
+version: 0.1.0

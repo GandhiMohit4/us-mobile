@@ -1,0 +1,11 @@
+replicaCount: 2
+image:
+  repository: 211125792481.dkr.ecr.us-east-1.amazonaws.com/hello-world-app-repo
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}

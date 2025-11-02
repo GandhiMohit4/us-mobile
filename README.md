@@ -34,13 +34,17 @@ The project follows a GitOps workflow:
 
 2.  **Install and Configure ArgoCD:**
     *   Install ArgoCD using the Helm chart
+        ``` bash
             helm repo add argo-cd https://argoproj.github.io/argo-helm
             helm repo update
             kubectl create namespace argocd
             helm install argocd argo-cd/argo-cd -n argocd --create-namespace
+        ```
     *   Port-forward to access the UI: `kubectl port-forward svc/argocd-server -n argocd 8080:443`
     *   Log in to the UI at `https://localhost:8080` with the `admin` user and the auto-generated password.
-         ` kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d `
+         ``` bash
+          kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d 
+          ```
 
 3.  **Bootstrap the Application:**
     *   Apply the following command to start the gitops process. 

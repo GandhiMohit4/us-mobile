@@ -73,8 +73,6 @@ jobs:
       - name: Sync Argo CD application
         run: |
           argocd app set ${{ env.ARGOCD_APP_NAME }} \
-           --namespace hello-world \
           --parameter image=${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
-
           argocd app sync ${{ env.ARGOCD_APP_NAME }} --namespace hello-world
           argocd app wait ${{ env.ARGOCD_APP_NAME }} --health --timeout 300

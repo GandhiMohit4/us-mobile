@@ -42,7 +42,7 @@ jobs:
           context: .
           push: true
           tags: ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
-          
+
       # Step 5: Update Kubeconfig
       - name: Update kubeconfig
         run: |
@@ -62,7 +62,9 @@ jobs:
           ARGOCD_USERNAME: ${{ secrets.ARGOCD_USERNAME }}
           ARGOCD_PASSWORD: ${{ secrets.ARGOCD_PASSWORD }}
         run: |
-          argocd login $ARGOCD_SERVER \
+            nohup kubectl port-forward svc/argocd-server -n argocd 8080:443 &
+            sleep 5
+            argocd login localhost:8080 \
             --username $ARGOCD_USERNAME \
             --password $ARGOCD_PASSWORD \
             --insecure

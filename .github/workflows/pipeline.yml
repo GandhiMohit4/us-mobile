@@ -81,7 +81,7 @@ jobs:
       # Step 7: Syncing ArgoCD 
       - name: Sync Argo CD application
         run: |
-          argocd app set ${{ env.ARGOCD_APP_NAME }} \
+          argocd app set hello-world-app \
           --helm-set image.repository=${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }} \
           --helm-set image.tag=${{ env.IMAGE_TAG }}
           

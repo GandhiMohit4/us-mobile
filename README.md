@@ -82,7 +82,7 @@ The project follows a GitOps workflow:
 
 ##  Results
 
-Few Screnshots of the project are attached as pdf (results-screenshots.pdf) and github action logs as github-action.log
+Few Screnshots of the project are attached as pdf (results-screenshots.pdf) and github action logs as Continous-integration.pdf
 
 ---
 
@@ -91,6 +91,7 @@ Few Screnshots of the project are attached as pdf (results-screenshots.pdf) and 
 To avoid ongoing AWS costs, destroy all the created infrastructure.
 
 1.  Go to the `Terraform` directory and execute 'terraform destroy --auto-approve'
+
 ---
 
 

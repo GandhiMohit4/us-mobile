@@ -1,0 +1,696 @@
+2025-11-02T16:15:33.7307257Z Current runner version: '2.329.0'
+2025-11-02T16:15:33.7336985Z ##[group]Runner Image Provisioner
+2025-11-02T16:15:33.7338303Z Hosted Compute Agent
+2025-11-02T16:15:33.7339248Z Version: 20251016.436
+2025-11-02T16:15:33.7340526Z Commit: 8ab8ac8bfd662a3739dab9fe09456aba92132568
+2025-11-02T16:15:33.7341800Z Build Date: 2025-10-15T20:44:12Z
+2025-11-02T16:15:33.7343161Z ##[endgroup]
+2025-11-02T16:15:33.7344335Z ##[group]Operating System
+2025-11-02T16:15:33.7345276Z Ubuntu
+2025-11-02T16:15:33.7346114Z 24.04.3
+2025-11-02T16:15:33.7346957Z LTS
+2025-11-02T16:15:33.7348049Z ##[endgroup]
+2025-11-02T16:15:33.7349109Z ##[group]Runner Image
+2025-11-02T16:15:33.7350145Z Image: ubuntu-24.04
+2025-11-02T16:15:33.7351098Z Version: 20251030.96.2
+2025-11-02T16:15:33.7353386Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251030.96/images/ubuntu/Ubuntu2404-Readme.md
+2025-11-02T16:15:33.7356312Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251030.96
+2025-11-02T16:15:33.7358092Z ##[endgroup]
+2025-11-02T16:15:33.7360725Z ##[group]GITHUB_TOKEN Permissions
+2025-11-02T16:15:33.7363835Z Contents: read
+2025-11-02T16:15:33.7364749Z Metadata: read
+2025-11-02T16:15:33.7365776Z Packages: read
+2025-11-02T16:15:33.7366696Z ##[endgroup]
+2025-11-02T16:15:33.7369853Z Secret source: Actions
+2025-11-02T16:15:33.7371541Z Prepare workflow directory
+2025-11-02T16:15:33.8119364Z Prepare all required actions
+2025-11-02T16:15:33.8177526Z Getting action download info
+2025-11-02T16:15:34.0677054Z Download action repository 'actions/checkout@v3' (SHA:f43a0e5ff2bd294095638e18286ca9a3d1956744)
+2025-11-02T16:15:34.2783647Z Download action repository 'aws-actions/configure-aws-credentials@v2' (SHA:5fd3084fc36e372ff1fff382a39b10d03659f355)
+2025-11-02T16:15:34.4786377Z Download action repository 'aws-actions/amazon-ecr-login@v2' (SHA:062b18b96a7aff071d4dc91bc00c4c1a7945b076)
+2025-11-02T16:15:34.6919376Z Download action repository 'docker/build-push-action@v5' (SHA:ca052bb54ab0790a636c9b5f226502c73d547a25)
+2025-11-02T16:15:35.0440081Z Complete job name: build-and-push
+2025-11-02T16:15:35.1055328Z ##[group]Run actions/checkout@v3
+2025-11-02T16:15:35.1056198Z with:
+2025-11-02T16:15:35.1056646Z   repository: GandhiMohit4/us-mobile
+2025-11-02T16:15:35.1057388Z   token: ***
+2025-11-02T16:15:35.1057809Z   ssh-strict: true
+2025-11-02T16:15:35.1058262Z   persist-credentials: true
+2025-11-02T16:15:35.1058740Z   clean: true
+2025-11-02T16:15:35.1059183Z   sparse-checkout-cone-mode: true
+2025-11-02T16:15:35.1059693Z   fetch-depth: 1
+2025-11-02T16:15:35.1060121Z   fetch-tags: false
+2025-11-02T16:15:35.1060544Z   lfs: false
+2025-11-02T16:15:35.1060938Z   submodules: false
+2025-11-02T16:15:35.1061459Z   set-safe-directory: true
+2025-11-02T16:15:35.1062127Z env:
+2025-11-02T16:15:35.1062539Z   AWS_REGION: us-east-1
+2025-11-02T16:15:35.1063271Z   ECR_REPOSITORY: hello-world-app-repo
+2025-11-02T16:15:35.1063890Z   IMAGE_TAG: 3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f
+2025-11-02T16:15:35.1064536Z   AWS_ACCOUNT_ID: ***
+2025-11-02T16:15:35.1065058Z   EKS_CLUSTER_NAME: us-mobile-interview-cluster
+2025-11-02T16:15:35.1065827Z   HELM_VALUES_FILE: gitops/helm-charts/hello-world-helm/values.yaml
+2025-11-02T16:15:35.1066567Z   ARGOCD_APP_NAME: us-interview-hello-world-app
+2025-11-02T16:15:35.1067133Z ##[endgroup]
+2025-11-02T16:15:35.1906105Z Syncing repository: GandhiMohit4/us-mobile
+2025-11-02T16:15:35.1907906Z ##[group]Getting Git version info
+2025-11-02T16:15:35.1908668Z Working directory is '/home/runner/work/us-mobile/us-mobile'
+2025-11-02T16:15:35.1909692Z [command]/usr/bin/git version
+2025-11-02T16:15:35.1975165Z git version 2.51.2
+2025-11-02T16:15:35.2001271Z ##[endgroup]
+2025-11-02T16:15:35.2016933Z Temporarily overriding HOME='/home/runner/work/_temp/5ac1ed48-0a79-4301-b4bb-09e3211add2f' before making global git config changes
+2025-11-02T16:15:35.2018364Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-02T16:15:35.2020010Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/us-mobile/us-mobile
+2025-11-02T16:15:35.2053467Z Deleting the contents of '/home/runner/work/us-mobile/us-mobile'
+2025-11-02T16:15:35.2056974Z ##[group]Initializing the repository
+2025-11-02T16:15:35.2059699Z [command]/usr/bin/git init /home/runner/work/us-mobile/us-mobile
+2025-11-02T16:15:35.2159494Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-11-02T16:15:35.2160761Z hint: is subject to change. To configure the initial branch name to use in all
+2025-11-02T16:15:35.2161881Z hint: of your new repositories, which will suppress this warning, call:
+2025-11-02T16:15:35.2163332Z hint:
+2025-11-02T16:15:35.2164112Z hint: 	git config --global init.defaultBranch <name>
+2025-11-02T16:15:35.2164908Z hint:
+2025-11-02T16:15:35.2165668Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-11-02T16:15:35.2166959Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-11-02T16:15:35.2168128Z hint:
+2025-11-02T16:15:35.2168705Z hint: 	git branch -m <name>
+2025-11-02T16:15:35.2169332Z hint:
+2025-11-02T16:15:35.2170180Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-11-02T16:15:35.2171807Z Initialized empty Git repository in /home/runner/work/us-mobile/us-mobile/.git/
+2025-11-02T16:15:35.2174203Z [command]/usr/bin/git remote add origin https://github.com/GandhiMohit4/us-mobile
+2025-11-02T16:15:35.2204752Z ##[endgroup]
+2025-11-02T16:15:35.2205523Z ##[group]Disabling automatic garbage collection
+2025-11-02T16:15:35.2207521Z [command]/usr/bin/git config --local gc.auto 0
+2025-11-02T16:15:35.2233223Z ##[endgroup]
+2025-11-02T16:15:35.2233997Z ##[group]Setting up auth
+2025-11-02T16:15:35.2237974Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-02T16:15:35.2263470Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-02T16:15:35.2585160Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-02T16:15:35.2614073Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-02T16:15:35.2829778Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-11-02T16:15:35.2862047Z ##[endgroup]
+2025-11-02T16:15:35.2863656Z ##[group]Fetching the repository
+2025-11-02T16:15:35.2871546Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f:refs/remotes/origin/main
+2025-11-02T16:15:35.4273409Z remote: Enumerating objects: 28, done.        
+2025-11-02T16:15:35.4275062Z remote: Counting objects:   3% (1/28)        
+2025-11-02T16:15:35.4276567Z remote: Counting objects:   7% (2/28)        
+2025-11-02T16:15:35.4278103Z remote: Counting objects:  10% (3/28)        
+2025-11-02T16:15:35.4279317Z remote: Counting objects:  14% (4/28)        
+2025-11-02T16:15:35.4280459Z remote: Counting objects:  17% (5/28)        
+2025-11-02T16:15:35.4281445Z remote: Counting objects:  21% (6/28)        
+2025-11-02T16:15:35.4282273Z remote: Counting objects:  25% (7/28)        
+2025-11-02T16:15:35.4283204Z remote: Counting objects:  28% (8/28)        
+2025-11-02T16:15:35.4283922Z remote: Counting objects:  32% (9/28)        
+2025-11-02T16:15:35.4284646Z remote: Counting objects:  35% (10/28)        
+2025-11-02T16:15:35.4285545Z remote: Counting objects:  39% (11/28)        
+2025-11-02T16:15:35.4286793Z remote: Counting objects:  42% (12/28)        
+2025-11-02T16:15:35.4287969Z remote: Counting objects:  46% (13/28)        
+2025-11-02T16:15:35.4288716Z remote: Counting objects:  50% (14/28)        
+2025-11-02T16:15:35.4289425Z remote: Counting objects:  53% (15/28)        
+2025-11-02T16:15:35.4290315Z remote: Counting objects:  57% (16/28)        
+2025-11-02T16:15:35.4290937Z remote: Counting objects:  60% (17/28)        
+2025-11-02T16:15:35.4291920Z remote: Counting objects:  64% (18/28)        
+2025-11-02T16:15:35.4293079Z remote: Counting objects:  67% (19/28)        
+2025-11-02T16:15:35.4294041Z remote: Counting objects:  71% (20/28)        
+2025-11-02T16:15:35.4295036Z remote: Counting objects:  75% (21/28)        
+2025-11-02T16:15:35.4295984Z remote: Counting objects:  78% (22/28)        
+2025-11-02T16:15:35.4296942Z remote: Counting objects:  82% (23/28)        
+2025-11-02T16:15:35.4297896Z remote: Counting objects:  85% (24/28)        
+2025-11-02T16:15:35.4298848Z remote: Counting objects:  89% (25/28)        
+2025-11-02T16:15:35.4299801Z remote: Counting objects:  92% (26/28)        
+2025-11-02T16:15:35.4300763Z remote: Counting objects:  96% (27/28)        
+2025-11-02T16:15:35.4301791Z remote: Counting objects: 100% (28/28)        
+2025-11-02T16:15:35.4303052Z remote: Counting objects: 100% (28/28), done.        
+2025-11-02T16:15:35.4304157Z remote: Compressing objects:   4% (1/22)        
+2025-11-02T16:15:35.4305175Z remote: Compressing objects:   9% (2/22)        
+2025-11-02T16:15:35.4306170Z remote: Compressing objects:  13% (3/22)        
+2025-11-02T16:15:35.4307188Z remote: Compressing objects:  18% (4/22)        
+2025-11-02T16:15:35.4308198Z remote: Compressing objects:  22% (5/22)        
+2025-11-02T16:15:35.4309193Z remote: Compressing objects:  27% (6/22)        
+2025-11-02T16:15:35.4310221Z remote: Compressing objects:  31% (7/22)        
+2025-11-02T16:15:35.4311238Z remote: Compressing objects:  36% (8/22)        
+2025-11-02T16:15:35.4312250Z remote: Compressing objects:  40% (9/22)        
+2025-11-02T16:15:35.4313460Z remote: Compressing objects:  45% (10/22)        
+2025-11-02T16:15:35.4314472Z remote: Compressing objects:  50% (11/22)        
+2025-11-02T16:15:35.4315477Z remote: Compressing objects:  54% (12/22)        
+2025-11-02T16:15:35.4316474Z remote: Compressing objects:  59% (13/22)        
+2025-11-02T16:15:35.4317803Z remote: Compressing objects:  63% (14/22)        
+2025-11-02T16:15:35.4318841Z remote: Compressing objects:  68% (15/22)        
+2025-11-02T16:15:35.4319854Z remote: Compressing objects:  72% (16/22)        
+2025-11-02T16:15:35.4320902Z remote: Compressing objects:  77% (17/22)        
+2025-11-02T16:15:35.4321960Z remote: Compressing objects:  81% (18/22)        
+2025-11-02T16:15:35.4323205Z remote: Compressing objects:  86% (19/22)        
+2025-11-02T16:15:35.4324266Z remote: Compressing objects:  90% (20/22)        
+2025-11-02T16:15:35.4325338Z remote: Compressing objects:  95% (21/22)        
+2025-11-02T16:15:35.4326398Z remote: Compressing objects: 100% (22/22)        
+2025-11-02T16:15:35.4327228Z remote: Compressing objects: 100% (22/22), done.        
+2025-11-02T16:15:35.4328135Z remote: Total 28 (delta 0), reused 19 (delta 0), pack-reused 0 (from 0)        
+2025-11-02T16:15:35.4426026Z From https://github.com/GandhiMohit4/us-mobile
+2025-11-02T16:15:35.4428682Z  * [new ref]         3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f -> origin/main
+2025-11-02T16:15:35.4461521Z ##[endgroup]
+2025-11-02T16:15:35.4463363Z ##[group]Determining the checkout info
+2025-11-02T16:15:35.4465008Z ##[endgroup]
+2025-11-02T16:15:35.4466386Z ##[group]Checking out the ref
+2025-11-02T16:15:35.4469524Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-11-02T16:15:35.4525488Z Switched to a new branch 'main'
+2025-11-02T16:15:35.4528535Z branch 'main' set up to track 'origin/main'.
+2025-11-02T16:15:35.4535186Z ##[endgroup]
+2025-11-02T16:15:35.4566484Z [command]/usr/bin/git log -1 --format='%H'
+2025-11-02T16:15:35.4587058Z '3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f'
+2025-11-02T16:15:35.4831574Z ##[group]Run aws-actions/configure-aws-credentials@v2
+2025-11-02T16:15:35.4832912Z with:
+2025-11-02T16:15:35.4833611Z   aws-access-key-id: ***
+2025-11-02T16:15:35.4834683Z   aws-secret-access-key: ***
+2025-11-02T16:15:35.4835429Z   aws-region: us-east-1
+2025-11-02T16:15:35.4836293Z   audience: sts.amazonaws.com
+2025-11-02T16:15:35.4836992Z env:
+2025-11-02T16:15:35.4837460Z   AWS_REGION: us-east-1
+2025-11-02T16:15:35.4838149Z   ECR_REPOSITORY: hello-world-app-repo
+2025-11-02T16:15:35.4839139Z   IMAGE_TAG: 3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f
+2025-11-02T16:15:35.4840131Z   AWS_ACCOUNT_ID: ***
+2025-11-02T16:15:35.4840861Z   EKS_CLUSTER_NAME: us-mobile-interview-cluster
+2025-11-02T16:15:35.4842141Z   HELM_VALUES_FILE: gitops/helm-charts/hello-world-helm/values.yaml
+2025-11-02T16:15:35.4843714Z   ARGOCD_APP_NAME: us-interview-hello-world-app
+2025-11-02T16:15:35.4844646Z ##[endgroup]
+2025-11-02T16:15:35.6933178Z (node:2181) NOTE: We are formalizing our plans to enter AWS SDK for JavaScript (v2) into maintenance mode in 2023.
+2025-11-02T16:15:35.6935292Z 
+2025-11-02T16:15:35.6935958Z Please migrate your code to use AWS SDK for JavaScript (v3).
+2025-11-02T16:15:35.6937848Z For more information, check the migration guide at https://a.co/7PzMCcy
+2025-11-02T16:15:35.6939780Z (Use `node --trace-warnings ...` to show where the warning was created)
+2025-11-02T16:15:35.8189694Z ##[group]Run aws-actions/amazon-ecr-login@v2
+2025-11-02T16:15:35.8191035Z with:
+2025-11-02T16:15:35.8191973Z   mask-password: true
+2025-11-02T16:15:35.8193316Z   registry-type: private
+2025-11-02T16:15:35.8194425Z   skip-logout: false
+2025-11-02T16:15:35.8195416Z env:
+2025-11-02T16:15:35.8196304Z   AWS_REGION: us-east-1
+2025-11-02T16:15:35.8197484Z   ECR_REPOSITORY: hello-world-app-repo
+2025-11-02T16:15:35.8198920Z   IMAGE_TAG: 3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f
+2025-11-02T16:15:35.8200861Z   AWS_ACCOUNT_ID: ***
+2025-11-02T16:15:35.8202077Z   EKS_CLUSTER_NAME: us-mobile-interview-cluster
+2025-11-02T16:15:35.8204047Z   HELM_VALUES_FILE: gitops/helm-charts/hello-world-helm/values.yaml
+2025-11-02T16:15:35.8205797Z   ARGOCD_APP_NAME: us-interview-hello-world-app
+2025-11-02T16:15:35.8207221Z   AWS_DEFAULT_REGION: us-east-1
+2025-11-02T16:15:35.8208493Z   AWS_ACCESS_KEY_ID: ***
+2025-11-02T16:15:35.8209955Z   AWS_SECRET_ACCESS_KEY: ***
+2025-11-02T16:15:35.8211081Z ##[endgroup]
+2025-11-02T16:15:36.0649490Z Logging into registry ***.dkr.ecr.us-east-1.amazonaws.com
+2025-11-02T16:15:36.2938112Z ##[group]Run docker/build-push-action@v5
+2025-11-02T16:15:36.2939188Z with:
+2025-11-02T16:15:36.2939892Z   context: .
+2025-11-02T16:15:36.2940633Z   push: true
+2025-11-02T16:15:36.2942328Z   tags: ***.dkr.ecr.us-east-1.amazonaws.com/hello-world-app-repo:3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f
+2025-11-02T16:15:36.2944228Z   load: false
+2025-11-02T16:15:36.2944979Z   no-cache: false
+2025-11-02T16:15:36.2945745Z   pull: false
+2025-11-02T16:15:36.2946772Z   github-token: ***
+2025-11-02T16:15:36.2947524Z env:
+2025-11-02T16:15:36.2948220Z   AWS_REGION: us-east-1
+2025-11-02T16:15:36.2949116Z   ECR_REPOSITORY: hello-world-app-repo
+2025-11-02T16:15:36.2950268Z   IMAGE_TAG: 3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f
+2025-11-02T16:15:36.2951432Z   AWS_ACCOUNT_ID: ***
+2025-11-02T16:15:36.2952375Z   EKS_CLUSTER_NAME: us-mobile-interview-cluster
+2025-11-02T16:15:36.2953909Z   HELM_VALUES_FILE: gitops/helm-charts/hello-world-helm/values.yaml
+2025-11-02T16:15:36.2955377Z   ARGOCD_APP_NAME: us-interview-hello-world-app
+2025-11-02T16:15:36.2956508Z   AWS_DEFAULT_REGION: us-east-1
+2025-11-02T16:15:36.2957543Z   AWS_ACCESS_KEY_ID: ***
+2025-11-02T16:15:36.2958723Z   AWS_SECRET_ACCESS_KEY: ***
+2025-11-02T16:15:36.2959590Z ##[endgroup]
+2025-11-02T16:15:36.5274748Z ##[group]GitHub Actions runtime token ACs
+2025-11-02T16:15:36.5285427Z refs/heads/main: read/write
+2025-11-02T16:15:36.5288426Z ##[endgroup]
+2025-11-02T16:15:36.5291068Z ##[group]Docker info
+2025-11-02T16:15:36.5333118Z [command]/usr/bin/docker version
+2025-11-02T16:15:36.5565208Z Client: Docker Engine - Community
+2025-11-02T16:15:36.5568843Z  Version:           28.0.4
+2025-11-02T16:15:36.5570457Z  API version:       1.48
+2025-11-02T16:15:36.5571948Z  Go version:        go1.23.7
+2025-11-02T16:15:36.5573717Z  Git commit:        b8034c0
+2025-11-02T16:15:36.5575391Z  Built:             Tue Mar 25 15:07:16 2025
+2025-11-02T16:15:36.5577508Z  OS/Arch:           linux/amd64
+2025-11-02T16:15:36.5579036Z  Context:           default
+2025-11-02T16:15:36.5579807Z 
+2025-11-02T16:15:36.5580216Z Server: Docker Engine - Community
+2025-11-02T16:15:36.5581183Z  Engine:
+2025-11-02T16:15:36.5581921Z   Version:          28.0.4
+2025-11-02T16:15:36.5583171Z   API version:      1.48 (minimum version 1.24)
+2025-11-02T16:15:36.5584333Z   Go version:       go1.23.7
+2025-11-02T16:15:36.5585255Z   Git commit:       6430e49
+2025-11-02T16:15:36.5586221Z   Built:            Tue Mar 25 15:07:16 2025
+2025-11-02T16:15:36.5587276Z   OS/Arch:          linux/amd64
+2025-11-02T16:15:36.5588206Z   Experimental:     false
+2025-11-02T16:15:36.5589083Z  containerd:
+2025-11-02T16:15:36.5589873Z   Version:          v1.7.28
+2025-11-02T16:15:36.5590996Z   GitCommit:        b98a3aace656320842a23f4a392a33f46af97866
+2025-11-02T16:15:36.5592193Z  runc:
+2025-11-02T16:15:36.5593344Z   Version:          1.3.0
+2025-11-02T16:15:36.5594299Z   GitCommit:        v1.3.0-0-g4ca628d1
+2025-11-02T16:15:36.5595327Z  docker-init:
+2025-11-02T16:15:36.5596107Z   Version:          0.19.0
+2025-11-02T16:15:36.5597010Z   GitCommit:        de40ad0
+2025-11-02T16:15:36.5614871Z [command]/usr/bin/docker info
+2025-11-02T16:15:39.4290276Z Client: Docker Engine - Community
+2025-11-02T16:15:39.4290819Z  Version:    28.0.4
+2025-11-02T16:15:39.4291177Z  Context:    default
+2025-11-02T16:15:39.4291522Z  Debug Mode: false
+2025-11-02T16:15:39.4291841Z  Plugins:
+2025-11-02T16:15:39.4292168Z   buildx: Docker Buildx (Docker Inc.)
+2025-11-02T16:15:39.4293151Z     Version:  v0.29.1
+2025-11-02T16:15:39.4293635Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+2025-11-02T16:15:39.4294180Z   compose: Docker Compose (Docker Inc.)
+2025-11-02T16:15:39.4294619Z     Version:  v2.38.2
+2025-11-02T16:15:39.4295057Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+2025-11-02T16:15:39.4295453Z 
+2025-11-02T16:15:39.4295578Z Server:
+2025-11-02T16:15:39.4295877Z  Containers: 0
+2025-11-02T16:15:39.4296246Z   Running: 0
+2025-11-02T16:15:39.4296581Z   Paused: 0
+2025-11-02T16:15:39.4296872Z   Stopped: 0
+2025-11-02T16:15:39.4297555Z  Images: 0
+2025-11-02T16:15:39.4297881Z  Server Version: 28.0.4
+2025-11-02T16:15:39.4298268Z  Storage Driver: overlay2
+2025-11-02T16:15:39.4298673Z   Backing Filesystem: extfs
+2025-11-02T16:15:39.4299071Z   Supports d_type: true
+2025-11-02T16:15:39.4299476Z   Using metacopy: false
+2025-11-02T16:15:39.4299836Z   Native Overlay Diff: false
+2025-11-02T16:15:39.4300215Z   userxattr: false
+2025-11-02T16:15:39.4300554Z  Logging Driver: json-file
+2025-11-02T16:15:39.4300934Z  Cgroup Driver: systemd
+2025-11-02T16:15:39.4301298Z  Cgroup Version: 2
+2025-11-02T16:15:39.4301628Z  Plugins:
+2025-11-02T16:15:39.4301998Z   Volume: local
+2025-11-02T16:15:39.4302705Z   Network: bridge host ipvlan macvlan null overlay
+2025-11-02T16:15:39.4303500Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+2025-11-02T16:15:39.4304134Z  Swarm: inactive
+2025-11-02T16:15:39.4304505Z  Runtimes: runc io.containerd.runc.v2
+2025-11-02T16:15:39.4304948Z  Default Runtime: runc
+2025-11-02T16:15:39.4305308Z  Init Binary: docker-init
+2025-11-02T16:15:39.4305798Z  containerd version: b98a3aace656320842a23f4a392a33f46af97866
+2025-11-02T16:15:39.4306334Z  runc version: v1.3.0-0-g4ca628d1
+2025-11-02T16:15:39.4306787Z  init version: de40ad0
+2025-11-02T16:15:39.4307157Z  Security Options:
+2025-11-02T16:15:39.4307518Z   apparmor
+2025-11-02T16:15:39.4307832Z   seccomp
+2025-11-02T16:15:39.4308156Z    Profile: builtin
+2025-11-02T16:15:39.4308514Z   cgroupns
+2025-11-02T16:15:39.4308875Z  Kernel Version: 6.11.0-1018-azure
+2025-11-02T16:15:39.4309356Z  Operating System: Ubuntu 24.04.3 LTS
+2025-11-02T16:15:39.4309853Z  OSType: linux
+2025-11-02T16:15:39.4310253Z  Architecture: x86_64
+2025-11-02T16:15:39.4310609Z  CPUs: 4
+2025-11-02T16:15:39.4310921Z  Total Memory: 15.62GiB
+2025-11-02T16:15:39.4311283Z  Name: runnervmf2e7y
+2025-11-02T16:15:39.4311676Z  ID: 53d5b372-3a00-4865-8d81-0d2be474f41b
+2025-11-02T16:15:39.4312387Z  Docker Root Dir: /var/lib/docker
+2025-11-02T16:15:39.4312996Z  Debug Mode: false
+2025-11-02T16:15:39.4313332Z  Username: githubactions
+2025-11-02T16:15:39.4313718Z  Experimental: false
+2025-11-02T16:15:39.4314093Z  Insecure Registries:
+2025-11-02T16:15:39.4318352Z   ::1/128
+2025-11-02T16:15:39.4318709Z   127.0.0.0/8
+2025-11-02T16:15:39.4319083Z  Live Restore Enabled: false
+2025-11-02T16:15:39.4319378Z 
+2025-11-02T16:15:39.4320027Z ##[endgroup]
+2025-11-02T16:15:39.4320725Z ##[group]Proxy configuration
+2025-11-02T16:15:39.4321164Z No proxy configuration found
+2025-11-02T16:15:39.4321879Z ##[endgroup]
+2025-11-02T16:15:39.5685824Z ##[group]Buildx version
+2025-11-02T16:15:39.5725315Z [command]/usr/bin/docker buildx version
+2025-11-02T16:15:39.6289947Z github.com/docker/buildx v0.29.1 a32761aeb3debd39be1eca514af3693af0db334b
+2025-11-02T16:15:39.6324368Z ##[endgroup]
+2025-11-02T16:15:39.6325463Z ##[group]Builder info
+2025-11-02T16:15:39.7722534Z {
+2025-11-02T16:15:39.7723108Z   "nodes": [
+2025-11-02T16:15:39.7723492Z     {
+2025-11-02T16:15:39.7723809Z       "name": "default",
+2025-11-02T16:15:39.7724221Z       "endpoint": "default",
+2025-11-02T16:15:39.7724799Z       "status": "running",
+2025-11-02T16:15:39.7725237Z       "buildkit": "v0.20.2",
+2025-11-02T16:15:39.7725824Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/386",
+2025-11-02T16:15:39.7726446Z       "features": {
+2025-11-02T16:15:39.7726986Z         "Automatically load images to the Docker Engine image store": true,
+2025-11-02T16:15:39.7727589Z         "Cache export": true,
+2025-11-02T16:15:39.7728012Z         "Direct push": true,
+2025-11-02T16:15:39.7728439Z         "Docker exporter": true,
+2025-11-02T16:15:39.7728888Z         "Multi-platform build": true,
+2025-11-02T16:15:39.7729347Z         "OCI exporter": true
+2025-11-02T16:15:39.7729738Z       },
+2025-11-02T16:15:39.7730052Z       "labels": {
+2025-11-02T16:15:39.7730612Z         "org.mobyproject.buildkit.worker.moby.host-gateway-ip": "172.17.0.1"
+2025-11-02T16:15:39.7731262Z       }
+2025-11-02T16:15:39.7731581Z     }
+2025-11-02T16:15:39.7731863Z   ],
+2025-11-02T16:15:39.7732168Z   "name": "default",
+2025-11-02T16:15:39.7733366Z   "driver": "docker"
+2025-11-02T16:15:39.7733767Z }
+2025-11-02T16:15:39.7734751Z ##[endgroup]
+2025-11-02T16:15:39.9369430Z [command]/usr/bin/docker buildx build --iidfile /home/runner/work/_temp/docker-actions-toolkit-Zx7cwc/build-iidfile-84351e53ea.txt --tag ***.dkr.ecr.us-east-1.amazonaws.com/hello-world-app-repo:3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f --metadata-file /home/runner/work/_temp/docker-actions-toolkit-Zx7cwc/build-metadata-733581ac8a.json --push .
+2025-11-02T16:15:40.2748000Z #0 building with "default" instance using docker driver
+2025-11-02T16:15:40.2748526Z 
+2025-11-02T16:15:40.2748716Z #1 [internal] load build definition from Dockerfile
+2025-11-02T16:15:40.2749162Z #1 transferring dockerfile: 198B done
+2025-11-02T16:15:40.2749518Z #1 DONE 0.0s
+2025-11-02T16:15:40.2749670Z 
+2025-11-02T16:15:40.2749900Z #2 [auth] library/python:pull token for registry-1.docker.io
+2025-11-02T16:15:40.2750369Z #2 DONE 0.0s
+2025-11-02T16:15:40.2750521Z 
+2025-11-02T16:15:40.2750777Z #3 [internal] load metadata for docker.io/library/python:3.9-slim
+2025-11-02T16:15:40.4344213Z #3 DONE 0.3s
+2025-11-02T16:15:40.5568998Z 
+2025-11-02T16:15:40.5569458Z #4 [internal] load .dockerignore
+2025-11-02T16:15:40.5569952Z #4 transferring context: 2B done
+2025-11-02T16:15:40.5570352Z #4 DONE 0.0s
+2025-11-02T16:15:40.5570549Z 
+2025-11-02T16:15:40.5570706Z #5 [internal] load build context
+2025-11-02T16:15:40.5571108Z #5 transferring context: 399B done
+2025-11-02T16:15:40.5571536Z #5 DONE 0.0s
+2025-11-02T16:15:40.5571701Z 
+2025-11-02T16:15:40.5572208Z #6 [1/5] FROM docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b
+2025-11-02T16:15:40.5575329Z #6 resolve docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b done
+2025-11-02T16:15:40.5576488Z #6 sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b 10.36kB / 10.36kB done
+2025-11-02T16:15:40.5579557Z #6 sha256:dad5b29e3506c35e0fd222736f4d4ef25d21b219acdd73f7bb41d59996ca8e0d 1.74kB / 1.74kB done
+2025-11-02T16:15:40.5580682Z #6 sha256:085da638e1b8a449514c3fda83ff50a3bffae4418b050cfacd87e5722071f497 5.40kB / 5.40kB done
+2025-11-02T16:15:40.5581740Z #6 sha256:38513bd7256313495cdd83b3b0915a633cfa475dc2a07072ab2c8d191020ca5d 20.97MB / 29.78MB 0.1s
+2025-11-02T16:15:40.5583020Z #6 sha256:fc74430849022d13b0d44b8969a953f842f59c6e9d1a0c2c83d710affa286c08 6.29MB / 13.88MB 0.1s
+2025-11-02T16:15:40.7499580Z #6 sha256:38513bd7256313495cdd83b3b0915a633cfa475dc2a07072ab2c8d191020ca5d 29.78MB / 29.78MB 0.2s done
+2025-11-02T16:15:40.7500777Z #6 sha256:fc74430849022d13b0d44b8969a953f842f59c6e9d1a0c2c83d710affa286c08 13.88MB / 13.88MB 0.1s done
+2025-11-02T16:15:40.7501913Z #6 extracting sha256:38513bd7256313495cdd83b3b0915a633cfa475dc2a07072ab2c8d191020ca5d 0.1s
+2025-11-02T16:15:40.7503138Z #6 sha256:ea56f685404adf81680322f152d2cfec62115b30dda481c2c450078315beb508 251B / 251B 0.2s done
+2025-11-02T16:15:40.7504325Z #6 sha256:b3ec39b36ae8c03a3e09854de4ec4aa08381dfed84a9daa075048c2e3df3881d 1.29MB / 1.29MB 0.1s done
+2025-11-02T16:15:41.6249669Z #6 extracting sha256:38513bd7256313495cdd83b3b0915a633cfa475dc2a07072ab2c8d191020ca5d 0.9s done
+2025-11-02T16:15:41.6250806Z #6 extracting sha256:b3ec39b36ae8c03a3e09854de4ec4aa08381dfed84a9daa075048c2e3df3881d 0.1s
+2025-11-02T16:15:41.8175223Z #6 extracting sha256:b3ec39b36ae8c03a3e09854de4ec4aa08381dfed84a9daa075048c2e3df3881d 0.1s done
+2025-11-02T16:15:41.8176414Z #6 extracting sha256:fc74430849022d13b0d44b8969a953f842f59c6e9d1a0c2c83d710affa286c08 0.1s
+2025-11-02T16:15:42.4144874Z #6 extracting sha256:fc74430849022d13b0d44b8969a953f842f59c6e9d1a0c2c83d710affa286c08 0.6s done
+2025-11-02T16:15:42.4146313Z #6 extracting sha256:ea56f685404adf81680322f152d2cfec62115b30dda481c2c450078315beb508
+2025-11-02T16:15:42.6049944Z #6 extracting sha256:ea56f685404adf81680322f152d2cfec62115b30dda481c2c450078315beb508 done
+2025-11-02T16:15:42.6050773Z #6 DONE 2.0s
+2025-11-02T16:15:42.6050979Z 
+2025-11-02T16:15:42.6051123Z #7 [2/5] WORKDIR /src
+2025-11-02T16:15:42.6051789Z #7 DONE 0.0s
+2025-11-02T16:15:42.6052024Z 
+2025-11-02T16:15:42.6052195Z #8 [3/5] COPY src/requirements.txt .
+2025-11-02T16:15:42.6052945Z #8 DONE 0.0s
+2025-11-02T16:15:42.6053162Z 
+2025-11-02T16:15:42.6053447Z #9 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+2025-11-02T16:15:44.1655225Z #9 1.711 Collecting flask
+2025-11-02T16:15:44.2855191Z #9 1.730   Downloading flask-3.1.2-py3-none-any.whl (103 kB)
+2025-11-02T16:15:44.2856431Z #9 1.736      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.3/103.3 kB 30.3 MB/s eta 0:00:00
+2025-11-02T16:15:44.2857046Z #9 1.779 Collecting click>=8.1.3
+2025-11-02T16:15:44.2857593Z #9 1.783   Downloading click-8.1.8-py3-none-any.whl (98 kB)
+2025-11-02T16:15:44.2858468Z #9 1.785      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.2/98.2 kB 225.9 MB/s eta 0:00:00
+2025-11-02T16:15:44.2859171Z #9 1.831 Collecting werkzeug>=3.1.0
+2025-11-02T16:15:44.4556416Z #9 1.835   Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+2025-11-02T16:15:44.4557624Z #9 1.838      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 224.5/224.5 kB 241.1 MB/s eta 0:00:00
+2025-11-02T16:15:44.4558250Z #9 1.857 Collecting itsdangerous>=2.2.0
+2025-11-02T16:15:44.4558853Z #9 1.861   Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+2025-11-02T16:15:44.4559467Z #9 2.001 Collecting markupsafe>=2.1.1
+2025-11-02T16:15:44.5589462Z #9 2.005   Downloading markupsafe-3.0.3-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+2025-11-02T16:15:44.5590474Z #9 2.023 Collecting blinker>=1.9.0
+2025-11-02T16:15:44.5591071Z #9 2.027   Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+2025-11-02T16:15:44.5591718Z #9 2.105 Collecting importlib-metadata>=3.6.0
+2025-11-02T16:15:44.7908074Z #9 2.108   Downloading importlib_metadata-8.7.0-py3-none-any.whl (27 kB)
+2025-11-02T16:15:44.7908926Z #9 2.136 Collecting jinja2>=3.1.2
+2025-11-02T16:15:44.7909798Z #9 2.139   Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2025-11-02T16:15:44.7910778Z #9 2.142      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 231.7 MB/s eta 0:00:00
+2025-11-02T16:15:44.7911304Z #9 2.200 Collecting zipp>=3.20
+2025-11-02T16:15:44.7911786Z #9 2.204   Downloading zipp-3.23.0-py3-none-any.whl (10 kB)
+2025-11-02T16:15:44.7913023Z #9 2.336 Installing collected packages: zipp, markupsafe, itsdangerous, click, blinker, werkzeug, jinja2, importlib-metadata, flask
+2025-11-02T16:15:45.1621994Z #9 2.708 Successfully installed blinker-1.9.0 click-8.1.8 flask-3.1.2 importlib-metadata-8.7.0 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.3 werkzeug-3.1.3 zipp-3.23.0
+2025-11-02T16:15:45.3508607Z #9 2.708 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2025-11-02T16:15:45.3510105Z #9 2.794 
+2025-11-02T16:15:45.3510614Z #9 2.794 [notice] A new release of pip is available: 23.0.1 -> 25.3
+2025-11-02T16:15:45.3511297Z #9 2.794 [notice] To update, run: pip install --upgrade pip
+2025-11-02T16:15:45.3511807Z #9 DONE 2.9s
+2025-11-02T16:15:45.5180474Z 
+2025-11-02T16:15:45.5180876Z #10 [5/5] COPY src/ .
+2025-11-02T16:15:45.5181281Z #10 DONE 0.0s
+2025-11-02T16:15:45.5181485Z 
+2025-11-02T16:15:45.5181631Z #11 exporting to image
+2025-11-02T16:15:45.5182000Z #11 exporting layers
+2025-11-02T16:15:46.0132983Z #11 exporting layers 0.6s done
+2025-11-02T16:15:46.1136722Z #11 writing image sha256:56c99088a8467096e19f9ab3f41a24db52d2d9ba26d50bc89c57220343ef3f9f done
+2025-11-02T16:15:46.1138058Z #11 naming to ***.dkr.ecr.us-east-1.amazonaws.com/hello-world-app-repo:3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f done
+2025-11-02T16:15:46.1138568Z #11 DONE 0.7s
+2025-11-02T16:15:46.1138686Z 
+2025-11-02T16:15:46.1138805Z #12 resolving provenance for metadata file
+2025-11-02T16:15:46.1139075Z #12 DONE 0.0s
+2025-11-02T16:15:46.1139181Z 
+2025-11-02T16:15:46.1139710Z #13 pushing ***.dkr.ecr.us-east-1.amazonaws.com/hello-world-app-repo:3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f with docker
+2025-11-02T16:15:46.1140508Z #13 pushing layer 5592d89059e3
+2025-11-02T16:15:46.1140762Z #13 pushing layer c26b5a9eded2
+2025-11-02T16:15:46.2825202Z #13 pushing layer f2357069bec4
+2025-11-02T16:15:46.2825698Z #13 pushing layer 8ec9cfa2a405
+2025-11-02T16:15:46.2826179Z #13 pushing layer c8f6b54339a8 0.1s
+2025-11-02T16:15:46.2826625Z #13 pushing layer 298992e09a03 0.2s
+2025-11-02T16:15:46.2827071Z #13 pushing layer 4f237755fbae
+2025-11-02T16:15:46.2827524Z #13 pushing layer d7c97cb6f1fe
+2025-11-02T16:15:46.4019313Z #13 pushing layer 5592d89059e3 2.56kB / 278B 0.2s
+2025-11-02T16:15:46.4020058Z #13 pushing layer c26b5a9eded2 2.05MB / 10.55MB 0.3s
+2025-11-02T16:15:46.4020508Z #13 pushing layer f2357069bec4 2.56kB / 5B 0.2s
+2025-11-02T16:15:46.5028216Z #13 pushing layer c26b5a9eded2 4.45MB / 10.55MB 0.4s
+2025-11-02T16:15:46.6056273Z #13 pushing layer c26b5a9eded2 6.74MB / 10.55MB 0.5s
+2025-11-02T16:15:46.7076690Z #13 pushing layer c26b5a9eded2 8.90MB / 10.55MB 0.6s
+2025-11-02T16:15:46.8109690Z #13 pushing layer c26b5a9eded2 11.20MB / 10.55MB 0.7s
+2025-11-02T16:15:46.8111172Z #13 pushing layer f2357069bec4 0.7s done
+2025-11-02T16:15:46.8111644Z #13 pushing layer 8ec9cfa2a405 0.7s done
+2025-11-02T16:15:46.8112128Z #13 pushing layer d7c97cb6f1fe 5.41MB / 78.61MB 0.7s
+2025-11-02T16:15:47.0146949Z #13 pushing layer 5592d89059e3 0.8s done
+2025-11-02T16:15:47.0147490Z #13 pushing layer d7c97cb6f1fe 11.36MB / 78.61MB 0.9s
+2025-11-02T16:15:47.2355621Z #13 pushing layer d7c97cb6f1fe 17.39MB / 78.61MB 1.1s
+2025-11-02T16:15:47.4574668Z #13 pushing layer c26b5a9eded2 1.2s done
+2025-11-02T16:15:47.4575274Z #13 pushing layer d7c97cb6f1fe 23.36MB / 78.61MB 1.3s
+2025-11-02T16:15:47.5683557Z #13 pushing layer d7c97cb6f1fe 28.16MB / 78.61MB 1.5s
+2025-11-02T16:15:47.6801142Z #13 pushing layer d7c97cb6f1fe 32.98MB / 78.61MB 1.6s
+2025-11-02T16:15:47.8938570Z #13 pushing layer d7c97cb6f1fe 37.96MB / 78.61MB 1.8s
+2025-11-02T16:15:48.1210567Z #13 pushing layer d7c97cb6f1fe 44.05MB / 78.61MB 2.0s
+2025-11-02T16:15:48.3565641Z #13 pushing layer d7c97cb6f1fe 50.10MB / 78.61MB 2.2s
+2025-11-02T16:15:48.5782888Z #13 pushing layer d7c97cb6f1fe 56.09MB / 78.61MB 2.5s
+2025-11-02T16:15:48.8012491Z #13 pushing layer d7c97cb6f1fe 61.60MB / 78.61MB 2.7s
+2025-11-02T16:15:49.0359781Z #13 pushing layer d7c97cb6f1fe 68.54MB / 78.61MB 2.9s
+2025-11-02T16:15:49.2594159Z #13 pushing layer d7c97cb6f1fe 75.01MB / 78.61MB 3.1s
+2025-11-02T16:15:49.5758222Z #13 pushing layer d7c97cb6f1fe 81.04MB / 78.61MB 3.3s
+2025-11-02T16:15:50.0471575Z #13 pushing layer d7c97cb6f1fe 3.9s done
+2025-11-02T16:15:51.0737471Z #13 pushing layer c8f6b54339a8 5.0s done
+2025-11-02T16:15:51.2244546Z #13 pushing layer 298992e09a03 5.0s done
+2025-11-02T16:15:51.2245062Z #13 pushing layer 4f237755fbae 5.0s done
+2025-11-02T16:15:51.2245406Z #13 DONE 5.0s
+2025-11-02T16:15:51.5108437Z ##[group]ImageID
+2025-11-02T16:15:51.5108805Z sha256:56c99088a8467096e19f9ab3f41a24db52d2d9ba26d50bc89c57220343ef3f9f
+2025-11-02T16:15:51.5110739Z ##[endgroup]
+2025-11-02T16:15:51.5111280Z ##[group]Digest
+2025-11-02T16:15:51.5111811Z sha256:2564c95c1530a6e6ff8c913eaec29b17618979e40ceec2d6cf46e1fa3a1c4867
+2025-11-02T16:15:51.5112943Z ##[endgroup]
+2025-11-02T16:15:51.5113460Z ##[group]Metadata
+2025-11-02T16:15:51.5114075Z {
+2025-11-02T16:15:51.5114372Z   "buildx.build.provenance": {
+2025-11-02T16:15:51.5114778Z     "builder": {
+2025-11-02T16:15:51.5115263Z       "id": ""
+2025-11-02T16:15:51.5115552Z     },
+2025-11-02T16:15:51.5115953Z     "buildType": "https://mobyproject.org/buildkit@v1",
+2025-11-02T16:15:51.5116441Z     "materials": [
+2025-11-02T16:15:51.5116750Z       {
+2025-11-02T16:15:51.5117173Z         "uri": "pkg:docker/python@3.9-slim?platform=linux%2Famd64",
+2025-11-02T16:15:51.5117703Z         "digest": {
+2025-11-02T16:15:51.5118228Z           "sha256": "2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b"
+2025-11-02T16:15:51.5118708Z         }
+2025-11-02T16:15:51.5118899Z       }
+2025-11-02T16:15:51.5137257Z     ],
+2025-11-02T16:15:51.5137571Z     "invocation": {
+2025-11-02T16:15:51.5137905Z       "configSource": {
+2025-11-02T16:15:51.5138561Z         "entryPoint": "Dockerfile"
+2025-11-02T16:15:51.5138982Z       },
+2025-11-02T16:15:51.5139294Z       "parameters": {
+2025-11-02T16:15:51.5139667Z         "frontend": "dockerfile.v0",
+2025-11-02T16:15:51.5140077Z         "locals": [
+2025-11-02T16:15:51.5140399Z           {
+2025-11-02T16:15:51.5140705Z             "name": "context"
+2025-11-02T16:15:51.5141066Z           },
+2025-11-02T16:15:51.5141434Z           {
+2025-11-02T16:15:51.5141752Z             "name": "dockerfile"
+2025-11-02T16:15:51.5142152Z           }
+2025-11-02T16:15:51.5142454Z         ]
+2025-11-02T16:15:51.5142950Z       },
+2025-11-02T16:15:51.5143264Z       "environment": {
+2025-11-02T16:15:51.5143647Z         "platform": "linux/amd64",
+2025-11-02T16:15:51.5144103Z         "ProvenanceCustomEnv": null
+2025-11-02T16:15:51.5144532Z       }
+2025-11-02T16:15:51.5144826Z     }
+2025-11-02T16:15:51.5145105Z   },
+2025-11-02T16:15:51.5145548Z   "buildx.build.ref": "default/default/o7zq8egc7nm2d5x4glgsdtndc",
+2025-11-02T16:15:51.5146553Z   "containerimage.config.digest": "sha256:56c99088a8467096e19f9ab3f41a24db52d2d9ba26d50bc89c57220343ef3f9f",
+2025-11-02T16:15:51.5147785Z   "containerimage.digest": "sha256:2564c95c1530a6e6ff8c913eaec29b17618979e40ceec2d6cf46e1fa3a1c4867",
+2025-11-02T16:15:51.5149212Z   "image.name": "***.dkr.ecr.us-east-1.amazonaws.com/hello-world-app-repo:3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f"
+2025-11-02T16:15:51.5150058Z }
+2025-11-02T16:15:51.5150706Z ##[endgroup]
+2025-11-02T16:15:51.5231820Z ##[group]Run aws eks update-kubeconfig --name us-mobile-interview-cluster --region us-east-1
+2025-11-02T16:15:51.5232533Z [36;1maws eks update-kubeconfig --name us-mobile-interview-cluster --region us-east-1[0m
+2025-11-02T16:15:51.5269247Z shell: /usr/bin/bash -e {0}
+2025-11-02T16:15:51.5269501Z env:
+2025-11-02T16:15:51.5269694Z   AWS_REGION: us-east-1
+2025-11-02T16:15:51.5270141Z   ECR_REPOSITORY: hello-world-app-repo
+2025-11-02T16:15:51.5270446Z   IMAGE_TAG: 3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f
+2025-11-02T16:15:51.5270792Z   AWS_ACCOUNT_ID: ***
+2025-11-02T16:15:51.5271050Z   EKS_CLUSTER_NAME: us-mobile-interview-cluster
+2025-11-02T16:15:51.5271419Z   HELM_VALUES_FILE: gitops/helm-charts/hello-world-helm/values.yaml
+2025-11-02T16:15:51.5271789Z   ARGOCD_APP_NAME: us-interview-hello-world-app
+2025-11-02T16:15:51.5272075Z   AWS_DEFAULT_REGION: us-east-1
+2025-11-02T16:15:51.5272351Z   AWS_ACCESS_KEY_ID: ***
+2025-11-02T16:15:51.5272934Z   AWS_SECRET_ACCESS_KEY: ***
+2025-11-02T16:15:51.5273200Z ##[endgroup]
+2025-11-02T16:16:01.5445448Z Added new context arn:aws:eks:us-east-1:***:cluster/us-mobile-interview-cluster to /home/runner/.kube/config
+2025-11-02T16:16:01.6184968Z ##[group]Run curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+2025-11-02T16:16:01.6185774Z [36;1mcurl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64[0m
+2025-11-02T16:16:01.6186269Z [36;1mchmod +x argocd[0m
+2025-11-02T16:16:01.6186508Z [36;1msudo mv argocd /usr/local/bin/[0m
+2025-11-02T16:16:01.6218237Z shell: /usr/bin/bash -e {0}
+2025-11-02T16:16:01.6218480Z env:
+2025-11-02T16:16:01.6218671Z   AWS_REGION: us-east-1
+2025-11-02T16:16:01.6218930Z   ECR_REPOSITORY: hello-world-app-repo
+2025-11-02T16:16:01.6219241Z   IMAGE_TAG: 3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f
+2025-11-02T16:16:01.6219619Z   AWS_ACCOUNT_ID: ***
+2025-11-02T16:16:01.6219876Z   EKS_CLUSTER_NAME: us-mobile-interview-cluster
+2025-11-02T16:16:01.6220253Z   HELM_VALUES_FILE: gitops/helm-charts/hello-world-helm/values.yaml
+2025-11-02T16:16:01.6220627Z   ARGOCD_APP_NAME: us-interview-hello-world-app
+2025-11-02T16:16:01.6220949Z   AWS_DEFAULT_REGION: us-east-1
+2025-11-02T16:16:01.6221216Z   AWS_ACCESS_KEY_ID: ***
+2025-11-02T16:16:01.6221534Z   AWS_SECRET_ACCESS_KEY: ***
+2025-11-02T16:16:01.6221762Z ##[endgroup]
+2025-11-02T16:16:02.4412263Z ##[group]Run nohup kubectl port-forward svc/argocd-server -n argocd 8080:443 &
+2025-11-02T16:16:02.4413125Z [36;1mnohup kubectl port-forward svc/argocd-server -n argocd 8080:443 &[0m
+2025-11-02T16:16:02.4413573Z [36;1m# Wait until port 8080 is actually open before continuing[0m
+2025-11-02T16:16:02.4413981Z [36;1mecho "⏳ Waiting for ArgoCD API to become reachable..."[0m
+2025-11-02T16:16:02.4414301Z [36;1mfor i in {1..10}; do[0m
+2025-11-02T16:16:02.4414543Z [36;1m  if nc -z localhost 8080; then[0m
+2025-11-02T16:16:02.4414839Z [36;1m    echo "✅ Port 8080 is open, continuing..."[0m
+2025-11-02T16:16:02.4415115Z [36;1m    break[0m
+2025-11-02T16:16:02.4415303Z [36;1m  fi[0m
+2025-11-02T16:16:02.4415551Z [36;1m  echo "Waiting for port-forward to initialize..."[0m
+2025-11-02T16:16:02.4415852Z [36;1m  sleep 3[0m
+2025-11-02T16:16:02.4416041Z [36;1mdone[0m
+2025-11-02T16:16:02.4416302Z [36;1margocd login *** \[0m
+2025-11-02T16:16:02.4416578Z [36;1m--username $ARGOCD_USERNAME \[0m
+2025-11-02T16:16:02.4416868Z [36;1m--password $ARGOCD_PASSWORD \[0m
+2025-11-02T16:16:02.4417132Z [36;1m--insecure[0m
+2025-11-02T16:16:02.4448892Z shell: /usr/bin/bash -e {0}
+2025-11-02T16:16:02.4449130Z env:
+2025-11-02T16:16:02.4449317Z   AWS_REGION: us-east-1
+2025-11-02T16:16:02.4449559Z   ECR_REPOSITORY: hello-world-app-repo
+2025-11-02T16:16:02.4449870Z   IMAGE_TAG: 3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f
+2025-11-02T16:16:02.4450207Z   AWS_ACCOUNT_ID: ***
+2025-11-02T16:16:02.4450461Z   EKS_CLUSTER_NAME: us-mobile-interview-cluster
+2025-11-02T16:16:02.4450828Z   HELM_VALUES_FILE: gitops/helm-charts/hello-world-helm/values.yaml
+2025-11-02T16:16:02.4451216Z   ARGOCD_APP_NAME: us-interview-hello-world-app
+2025-11-02T16:16:02.4451509Z   AWS_DEFAULT_REGION: us-east-1
+2025-11-02T16:16:02.4451772Z   AWS_ACCESS_KEY_ID: ***
+2025-11-02T16:16:02.4452111Z   AWS_SECRET_ACCESS_KEY: ***
+2025-11-02T16:16:02.4452351Z   ARGOCD_SERVER: ***
+2025-11-02T16:16:02.4452780Z   ARGOCD_USERNAME: ***
+2025-11-02T16:16:02.4453033Z   ARGOCD_PASSWORD: ***
+2025-11-02T16:16:02.4453425Z ##[endgroup]
+2025-11-02T16:16:02.4501429Z ⏳ Waiting for ArgoCD API to become reachable...
+2025-11-02T16:16:02.4525269Z Waiting for port-forward to initialize...
+2025-11-02T16:16:05.4562756Z Waiting for port-forward to initialize...
+2025-11-02T16:16:08.4591788Z Waiting for port-forward to initialize...
+2025-11-02T16:16:09.7064204Z Forwarding from 127.0.0.1:8080 -> 8080
+2025-11-02T16:16:09.7065158Z Forwarding from [::1]:8080 -> 8080
+2025-11-02T16:16:11.4624686Z Connection to localhost (::1) 8080 port [tcp/http-alt] succeeded!
+2025-11-02T16:16:11.4625566Z Handling connection for 8080
+2025-11-02T16:16:11.4626430Z ✅ Port 8080 is open, continuing...
+2025-11-02T16:16:11.5107217Z Handling connection for 8080
+2025-11-02T16:16:11.5304445Z Handling connection for 8080
+2025-11-02T16:16:11.5709137Z Handling connection for 8080
+2025-11-02T16:16:11.5949615Z Handling connection for 8080
+2025-11-02T16:16:11.5982439Z E1102 16:16:11.598012    2595 portforward.go:391] "Unhandled Error" err="error copying from remote stream to local connection: readfrom tcp6 [::1]:8080->[::1]:56764: write tcp6 [::1]:8080->[::1]:56764: write: broken pipe"
+2025-11-02T16:16:11.6137362Z Handling connection for 8080
+2025-11-02T16:16:12.3795256Z '***:login' logged in successfully
+2025-11-02T16:16:12.3798470Z Context '***' updated
+2025-11-02T16:16:17.3882123Z ##[group]Run argocd app set hello-world-app \
+2025-11-02T16:16:17.3882490Z [36;1margocd app set hello-world-app \[0m
+2025-11-02T16:16:17.3883168Z [36;1m--helm-set image.repository=***.dkr.ecr.us-east-1.amazonaws.com/hello-world-app-repo \[0m
+2025-11-02T16:16:17.3883697Z [36;1m--helm-set image.tag=3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f[0m
+2025-11-02T16:16:17.3884034Z [36;1m[0m
+2025-11-02T16:16:17.3884275Z [36;1margocd app sync us-interview-hello-world-app[0m
+2025-11-02T16:16:17.3884696Z [36;1margocd app wait us-interview-hello-world-app --health --timeout 300[0m
+2025-11-02T16:16:17.3916188Z shell: /usr/bin/bash -e {0}
+2025-11-02T16:16:17.3916426Z env:
+2025-11-02T16:16:17.3916630Z   AWS_REGION: us-east-1
+2025-11-02T16:16:17.3916873Z   ECR_REPOSITORY: hello-world-app-repo
+2025-11-02T16:16:17.3917172Z   IMAGE_TAG: 3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f
+2025-11-02T16:16:17.3917487Z   AWS_ACCOUNT_ID: ***
+2025-11-02T16:16:17.3917767Z   EKS_CLUSTER_NAME: us-mobile-interview-cluster
+2025-11-02T16:16:17.3918138Z   HELM_VALUES_FILE: gitops/helm-charts/hello-world-helm/values.yaml
+2025-11-02T16:16:17.3918508Z   ARGOCD_APP_NAME: us-interview-hello-world-app
+2025-11-02T16:16:17.3918795Z   AWS_DEFAULT_REGION: us-east-1
+2025-11-02T16:16:17.3919073Z   AWS_ACCESS_KEY_ID: ***
+2025-11-02T16:16:17.3919376Z   AWS_SECRET_ACCESS_KEY: ***
+2025-11-02T16:16:17.3919595Z ##[endgroup]
+2025-11-02T16:16:18.0550874Z TIMESTAMP                  GROUP              KIND    NAMESPACE                  NAME    STATUS   HEALTH        HOOK  MESSAGE
+2025-11-02T16:16:18.0552052Z 2025-11-02T16:16:18+00:00  argoproj.io  Application      argocd       hello-world-app    Synced                       
+2025-11-02T16:16:18.4421535Z 2025-11-02T16:16:18+00:00  argoproj.io  Application      argocd       hello-world-app    Synced                       application.argoproj.io/hello-world-app unchanged
+2025-11-02T16:16:18.6610220Z 
+2025-11-02T16:16:18.6611002Z Name:               argocd/us-interview-hello-world-app
+2025-11-02T16:16:18.6611999Z Project:            default
+2025-11-02T16:16:18.6612974Z Server:             https://kubernetes.default.svc
+2025-11-02T16:16:18.6613764Z Namespace:          argocd
+2025-11-02T16:16:18.6614657Z URL:                https://argocd.example.com/applications/us-interview-hello-world-app
+2025-11-02T16:16:18.6615651Z Source:
+2025-11-02T16:16:18.6616253Z - Repo:             https://github.com/GandhiMohit4/us-mobile.git
+2025-11-02T16:16:18.6617051Z   Target:           HEAD
+2025-11-02T16:16:18.6617615Z   Path:             gitops/argocd/hello-world-app
+2025-11-02T16:16:18.6618196Z SyncWindow:         Sync Allowed
+2025-11-02T16:16:18.6618651Z Sync Policy:        Automated (Prune)
+2025-11-02T16:16:18.6619567Z Sync Status:        Synced to HEAD (3348fe4)
+2025-11-02T16:16:18.6620068Z Health Status:      Healthy
+2025-11-02T16:16:18.6620319Z 
+2025-11-02T16:16:18.6620418Z Operation:          Sync
+2025-11-02T16:16:18.6620727Z Sync Revision:      3348fe4c8c6a7d2fc9dc3b1b606d518617253a6f
+2025-11-02T16:16:18.6621069Z Phase:              Succeeded
+2025-11-02T16:16:18.6621326Z Start:              2025-11-02 16:16:17 +0000 UTC
+2025-11-02T16:16:18.6621622Z Finished:           2025-11-02 16:16:18 +0000 UTC
+2025-11-02T16:16:18.6621900Z Duration:           1s
+2025-11-02T16:16:18.6622167Z Message:            successfully synced (all tasks run)
+2025-11-02T16:16:18.6622382Z 
+2025-11-02T16:16:18.6622740Z GROUP        KIND         NAMESPACE  NAME             STATUS  HEALTH  HOOK  MESSAGE
+2025-11-02T16:16:18.6623371Z argoproj.io  Application  argocd     hello-world-app  Synced                application.argoproj.io/hello-world-app unchanged
+2025-11-02T16:16:18.8695332Z 
+2025-11-02T16:16:18.8695765Z Name:               argocd/us-interview-hello-world-app
+2025-11-02T16:16:18.8696571Z Project:            default
+2025-11-02T16:16:18.8697131Z Server:             https://kubernetes.default.svc
+2025-11-02T16:16:18.8697777Z Namespace:          argocd
+2025-11-02T16:16:18.8699000Z URL:                https://argocd.example.com/applications/us-interview-hello-world-app
+2025-11-02T16:16:18.8700182Z Source:
+2025-11-02T16:16:18.8700719Z - Repo:             https://github.com/GandhiMohit4/us-mobile.git
+2025-11-02T16:16:18.8701443Z   Target:           HEAD
+2025-11-02T16:16:18.8702012Z   Path:             gitops/argocd/hello-world-app
+2025-11-02T16:16:18.8702436Z SyncWindow:         Sync Allowed
+2025-11-02T16:16:18.8703074Z Sync Policy:        Automated (Prune)
+2025-11-02T16:16:18.8703546Z Sync Status:        Synced to HEAD (3348fe4)
+2025-11-02T16:16:18.8703944Z Health Status:      Healthy
+2025-11-02T16:16:18.8704160Z 
+2025-11-02T16:16:18.8704165Z 
+2025-11-02T16:16:18.8704425Z GROUP        KIND         NAMESPACE  NAME             STATUS  HEALTH  HOOK  MESSAGE
+2025-11-02T16:16:18.8705318Z argoproj.io  Application  argocd     hello-world-app  Synced                application.argoproj.io/hello-world-app unchanged
+2025-11-02T16:16:18.8823218Z Post job cleanup.
+2025-11-02T16:16:19.0965846Z ##[group]Removing temp folder /home/runner/work/_temp/docker-actions-toolkit-Zx7cwc
+2025-11-02T16:16:19.0979759Z ##[endgroup]
+2025-11-02T16:16:19.0980615Z ##[group]Post cache
+2025-11-02T16:16:19.0981684Z State not set
+2025-11-02T16:16:19.0982346Z ##[endgroup]
+2025-11-02T16:16:19.1088360Z Post job cleanup.
+2025-11-02T16:16:19.1429121Z Logging out of registry ***.dkr.ecr.us-east-1.amazonaws.com
+2025-11-02T16:16:19.1696296Z Post job cleanup.
+2025-11-02T16:16:19.2104870Z Post job cleanup.
+2025-11-02T16:16:19.2832011Z [command]/usr/bin/git version
+2025-11-02T16:16:19.2867147Z git version 2.51.2
+2025-11-02T16:16:19.2911259Z Temporarily overriding HOME='/home/runner/work/_temp/4cc2f0dc-c5fb-470c-bb54-7eb981142d76' before making global git config changes
+2025-11-02T16:16:19.2913781Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-02T16:16:19.2916138Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/us-mobile/us-mobile
+2025-11-02T16:16:19.2948008Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-02T16:16:19.2981909Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-02T16:16:19.3209794Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-02T16:16:19.3230115Z http.https://github.com/.extraheader
+2025-11-02T16:16:19.3241619Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-11-02T16:16:19.3270208Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-02T16:16:19.3598961Z Cleaning up orphan processes
+2025-11-02T16:16:19.3912502Z Terminate orphan process: pid (2595) (kubectl)

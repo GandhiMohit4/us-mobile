@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: {{ .Chart.Name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        ports:
+        - containerPort: {{ .Values.service.port }}
+  strategy:
+    blueGreen:
+      activeService: {{ .Chart.Name }}-active  # Active service for the stable version
+      previewService: {{ .Chart.Name }}-preview  # Preview service for the new version
+      autoPromotionSeconds: 60  # Time before automatically promoting the preview to active
+      scaling:
+        activeService: 1  # Scale the active service to 1 replica
+        previewService: 1  # Scale the preview service to 1 replica
+  progressDeadlineSeconds: 300  # Set progress deadline to automatically rollback if rollout is not successful

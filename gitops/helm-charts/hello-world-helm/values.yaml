@@ -1,4 +1,5 @@
 replicaCount: 2
+namespace: hello-world 
 image:
   repository: 211125792481.dkr.ecr.us-east-1.amazonaws.com/hello-world-app-repo
   tag: latest

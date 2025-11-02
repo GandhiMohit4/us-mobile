@@ -63,7 +63,16 @@ jobs:
           ARGOCD_PASSWORD: ${{ secrets.ARGOCD_PASSWORD }}
         run: |
             nohup kubectl port-forward svc/argocd-server -n argocd 8080:443 &
-            sleep 5
+            # Wait until port 8080 is actually open before continuing
+            echo "⏳ Waiting for ArgoCD API to become reachable..."
+            for i in {1..10}; do
+              if nc -z localhost 8080; then
+                echo "✅ Port 8080 is open, continuing..."
+                break
+              fi
+              echo "Waiting for port-forward to initialize..."
+              sleep 3
+            done
             argocd login localhost:8080 \
             --username $ARGOCD_USERNAME \
             --password $ARGOCD_PASSWORD \

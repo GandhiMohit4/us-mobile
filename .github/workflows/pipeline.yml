@@ -15,7 +15,9 @@ jobs:
       IMAGE_TAG: ${{ github.sha }}
       AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       EKS_CLUSTER_NAME: us-mobile-interview-cluster
-      
+      HELM_VALUES_FILE: gitops/helm-charts/hello-world-helm/values.yaml
+      ARGOCD_APP_NAME: us-interview-hello-world-app
+
     steps:
       # Step 1: Checkout the repository
       - name: Checkout code
@@ -40,8 +42,34 @@ jobs:
           context: .
           push: true
           tags: ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
-
+      # Step 5: Update Kubeconfig
       - name: Update kubeconfig
         run: |
           aws eks update-kubeconfig --name ${{ env.EKS_CLUSTER_NAME }} --region ${{ env.AWS_REGION }}
 
+      # Step 6: Install ArgoCD ClI
+      - name: Install Argo CD CLI
+        run: |
+          curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+          chmod +x argocd
+          sudo mv argocd /usr/local/bin/
+          
+     # Step 7: Logging ArgoCD ClI
+      - name: Login to Argo CD
+        env:
+          ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
+          ARGOCD_USERNAME: ${{ secrets.ARGOCD_USERNAME }}
+          ARGOCD_PASSWORD: ${{ secrets.ARGOCD_PASSWORD }}
+        run: |
+          argocd login $ARGOCD_SERVER \
+            --username $ARGOCD_USERNAME \
+            --password $ARGOCD_PASSWORD \
+            --insecure
+
+      - name: Sync Argo CD application
+        run: |
+          argocd app set ${{ env.ARGOCD_APP_NAME }} \
+            --parameter image=${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+
+          argocd app sync ${{ env.ARGOCD_APP_NAME }}
+          argocd app wait ${{ env.ARGOCD_APP_NAME }} --health --timeout 300

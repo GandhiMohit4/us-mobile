@@ -5,6 +5,13 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  strategy:
+        canary: # Define the canary strategy
+        steps:
+        - setWeight: 20 # Send 20% of traffic to the new version
+        - pause: { duration: 30s } # Pause for 30 seconds to observe
+        - setWeight: 50 # Send 50% traffic
+        - pause: { duration: 30s }
   selector:
     matchLabels:
       app: {{ .Chart.Name }}

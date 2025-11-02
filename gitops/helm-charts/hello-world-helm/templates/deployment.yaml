@@ -1,17 +1,10 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: {{ .Chart.Name }}
   namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
-  strategy:
-        canary: # Define the canary strategy
-        steps:
-        - setWeight: 20 # Send 20% of traffic to the new version
-        - pause: { duration: 30s } # Pause for 30 seconds to observe
-        - setWeight: 50 # Send 50% traffic
-        - pause: { duration: 30s }
   selector:
     matchLabels:
       app: {{ .Chart.Name }}
@@ -19,6 +12,13 @@ spec:
     metadata:
       labels:
         app: {{ .Chart.Name }}
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+         maxSurge: 1            # Number of pods that can be created over the desired number of pods
+         maxUnavailable: 1      # Number of pods that can be unavailable during the update
+  # Set progress deadline to automatically rollback if rollout is not successful in a given time
+    progressDeadlineSeconds: 300
     spec:
       containers:
       - name: {{ .Chart.Name }}
